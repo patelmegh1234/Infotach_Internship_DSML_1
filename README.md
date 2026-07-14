@@ -100,4 +100,3 @@ deployment/              Deployment notes and production checklist
 5. Explain the acoustic feature cards: reverb tail, RIR decay proxy, background consistency, breathing cadence proxy.
 6. Show confidence output and suspicious segment table.
 7. Open `docs/MID_PROJECT_REVIEW.md` to explain Week 1-2 completion and Week 3-4 plan.
-
