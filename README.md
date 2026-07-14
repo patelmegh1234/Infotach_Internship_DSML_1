@@ -27,8 +27,8 @@
 
 **AcousticSpace** is a full-stack AI project focused on detecting **deepfake audio** using **Room Impulse Response (RIR)**, environmental acoustics, and temporal speech-breathing consistency. Instead of relying only on voice biometrics, the system evaluates whether the voice realistically matches the surrounding recording environment.
 
-> 👨‍💻 **Team Lead:** Megh Patel  
-> 👥 **Team Members:** Megh Patel, Dimple, Shubhangi, Fathima  
+> 👨‍💻 **Team Lead:** Megh  
+> 👥 **Team Members:** Megh, Dimple, Shubhangi, Fathima  
 > 🏢 **Project Type:** Internship Team Project  
 > 🎯 **Domain:** Audio Forensics & Deepfake Detection  
 
