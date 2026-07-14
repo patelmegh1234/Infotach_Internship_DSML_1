@@ -1,0 +1,21 @@
+﻿# Megh, Upload Date: 2026-07-14
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+data/raw/
+data/processed/
+data/demo/
+models/checkpoints/
+models/artifacts/
+backend/uploads/
+backend/reports/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+.DS_Store
+Thumbs.db
