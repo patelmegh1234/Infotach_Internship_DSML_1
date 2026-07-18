@@ -1,191 +1,49 @@
-<h1 align="center">🎙️ AcousticSpace</h1>
+<!-- Megh, Upload Date: 2026-07-14 -->
+# AcousticSpace
 
-<p align="center">
-  <b>Deepfake Detection via Room Impulse Response (RIR)</b><br>
-  <i>AI-Powered Audio Forensics Platform | Internship Project</i>
-</p>
+AcousticSpace is a mid-review ready deepfake audio detection project that focuses on room acoustics, reverberation, background consistency, and breathing cadence proxies instead of only vocal artifacts.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
-  <img src="https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" />
-  <img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-  <img src="https://img.shields.io/badge/Status-In%20Progress-brightgreen?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Team-4%20Members-blueviolet?style=for-the-badge" />
-</p>
+The Week 1-2 version includes a FastAPI backend, a Librosa-based acoustic feature pipeline, a baseline confidence model, a React analyst dashboard, waveform visualization, project documentation, Docker files, and a team contribution plan.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Librosa-Audio%20Processing-8E44AD?style=flat-square" />
-  <img src="https://img.shields.io/badge/HuggingFace-Transformer%20Model-FFB000?style=flat-square&logo=huggingface&logoColor=black" />
-  <img src="https://img.shields.io/badge/Docker-Deployment-2496ED?style=flat-square&logo=docker&logoColor=white" />
-  <img src="https://img.shields.io/badge/TypeScript-UI%20Development-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-</p>
+## Team Ownership
 
-***
+| Member | Primary Area | Upload Focus |
+| --- | --- | --- |
+| Megh | Repository owner, API integration, coordination | Backend API, Docker, CI, deployment docs, merge reviews |
+| Shubhangi | Audio processing pipeline | Dataset setup, Librosa features, spectrogram and RIR extraction |
+| Fathima | Model development | Baseline classifier, training scripts, evaluation metrics |
+| Dimple | Frontend dashboard | React UI, upload flow, waveform visualization, results history |
 
-## 📖 About This Repository
+Every member should commit their assigned files from their own GitHub account so senior reviewers can see real contribution history.
 
-**AcousticSpace** is a full-stack AI project focused on detecting **deepfake audio** using **Room Impulse Response (RIR)**, environmental acoustics, and temporal speech-breathing consistency. Instead of relying only on voice biometrics, the system evaluates whether the voice realistically matches the surrounding recording environment.
+## Mid-Project Review Scope
 
-> 👨‍💻 **Team Lead:** Megh Patel  
-> 👥 **Team Members:** Megh Patel, Dimple, Shubhangi, Fathima  
-> 🏢 **Project Type:** Internship Team Project  
-> 🎯 **Domain:** Audio Forensics & Deepfake Detection  
+This repository intentionally focuses on the first two weeks of the plan:
 
-***
+- FastAPI server with upload and inference endpoints.
+- Dataset download helper for `awsaf49/asvpoof-2019-dataset` through `kagglehub`.
+- Librosa feature extraction for spectrogram, MFCC, reverb tail, RIR-style decay proxy, background noise consistency, and breathing cadence proxy.
+- Baseline acoustic mismatch model with confidence scores and suspicious segment output.
+- React dashboard with upload, waveform preview, result cards, anomaly table, and local analysis history.
+- Docker and CI scaffolding for deployment readiness.
 
-## 🧠 Problem Statement
+Week 3-4 placeholders are included in the docs and model interfaces so the team can later replace the baseline model with an AST fine-tuning pipeline.
 
-Conventional deepfake audio detectors mainly focus on vocal artifacts such as robotic texture or unnatural intonation. As generative AI improves, these surface-level cues become easier to hide.
+## Quick Start
 
-**AcousticSpace** addresses this by analyzing the **physics behind the sound** — especially room reflections, reverberation, and cadence consistency — to identify audio that may be artificially generated.
-
-***
-
-## 🚀 Use Case
-
-A security analyst uploads a suspicious audio clip to the platform. AcousticSpace processes the signal, extracts low-level acoustic characteristics, and checks whether the **voice, breathing rhythm, and room response** are physically aligned.
-
-If the background environment and generated voice do not match, the system flags the recording as potentially synthetic and presents the result through an interactive dashboard.
-
-***
-
-## 🗂️ Project Overview
-
-| Module | Responsibility | Tech Stack |
-|:---:|---|---|
-| **1** | Audio Processing Pipeline | Python, Librosa, NumPy |
-| **2** | Deepfake Classification Model | PyTorch, Hugging Face AST |
-| **3** | API & Inference Layer | FastAPI, Uvicorn, Pydantic |
-| **4** | Analyst Dashboard | React, TypeScript, WaveSurfer.js |
-
-***
-
-## 📂 Repository Structure
-
-```bash
-AcousticSpace/
-│
-├── README.md                         ← Main project overview
-├── .gitignore                        ← Git ignore rules
-├── requirements.txt                  ← Python dependencies
-│
-├── backend/                          ← FastAPI backend services
-│   ├── app/
-│   ├── api/
-│   ├── services/
-│   ├── models/
-│   └── main.py
-│
-├── ml/                               ← Machine learning and preprocessing
-│   ├── data/
-│   ├── preprocessing/
-│   ├── training/
-│   ├── inference/
-│   └── notebooks/
-│
-├── frontend/                         ← React dashboard
-│   ├── src/
-│   ├── components/
-│   ├── pages/
-│   └── package.json
-│
-├── docker/                           ← Docker configuration files
-├── tests/                            ← Testing modules
-└── docs/                             ← Technical documentation
-```
-
-***
-
-## ⚙️ Core Features
-
-- **RIR-based deepfake detection** using room acoustic signatures
-- **Librosa-powered preprocessing** for spectrogram and environmental feature extraction
-- **Transformer-based classifier** for robust audio authenticity analysis
-- **FastAPI backend** for low-latency model serving
-- **React dashboard** for upload, waveform display, and result visualization
-- **Confidence scoring** for investigation support
-- **Modular architecture** for easy scaling and deployment
-
-***
-
-## 🛠️ Tech Stack
-
-| Category | Technologies |
-|---|---|
-| **Programming Languages** | Python, TypeScript |
-| **Audio Processing** | Librosa, NumPy, SciPy |
-| **Machine Learning** | PyTorch, Hugging Face Transformers |
-| **Backend** | FastAPI, Uvicorn, Pydantic |
-| **Frontend** | React, TypeScript |
-| **Visualization** | WaveSurfer.js |
-| **Deployment** | Docker, CI/CD |
-
-***
-
-## 📅 Development Roadmap
-
-### Week 1: Foundation Setup 🎯
-> **Phase:** Core Setup & Data Preparation
-
-- Set up FastAPI backend
-- Curate dataset for training and testing
-- Build Librosa preprocessing pipeline
-- Create React app structure and audio upload UI
-
-### Week 2: Baseline Model & Visualization 📊
-> **Phase:** Baseline Intelligence
-
-- Train initial CNN/Transformer baseline model
-- Validate extracted acoustic features
-- Integrate waveform visualization on frontend
-- Review file upload handling and dashboard flow
-
-### Week 3: Advanced Detection Logic 🧠
-> **Phase:** Model Refinement
-
-- Fine-tune Hugging Face Audio Transformer
-- Implement breathing cadence analysis
-- Build confidence score result panel
-- Highlight suspicious audio regions in the dashboard
-
-### Week 4: Deployment & Finalization 🚀
-> **Phase:** Production Readiness
-
-- Dockerize backend and ML pipeline
-- Optimize inference latency
-- Add CI/CD workflows
-- Final UI/UX improvements and history tracking
-
-***
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- **Python 3.10+**
-- **Node.js 18+**
-- **Git**
-- **Docker** (optional)
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/your-username/AcousticSpace.git
-cd AcousticSpace
-```
-
-### Backend Setup
+### Backend
 
 ```bash
 cd backend
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+python -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### Frontend Setup
+Open `http://localhost:8000/docs` for the API contract.
+
+### Frontend
 
 ```bash
 cd frontend
@@ -193,67 +51,52 @@ npm install
 npm run dev
 ```
 
-***
+Open `http://localhost:5173`.
 
-## 👥 Team Contribution Plan
+### Docker Compose
 
-| Member | Assigned Area | Key Ownership |
-|---|---|---|
-| **Megh Patel** | Backend + Integration + Team Leadership | Repo setup, FastAPI integration, review, deployment support |
-| **Dimple** | Audio Processing | Dataset setup, preprocessing, RIR feature extraction |
-| **Shubhangi** | Machine Learning | Baseline model, transformer fine-tuning, evaluation |
-| **Fathima** | Frontend Dashboard | React UI, waveform visualization, results interface |
-
-***
-
-## 🌟 Skills Demonstrated
-
-```text
-✅ Audio Signal Processing             ✅ Deepfake Detection Research
-✅ Room Impulse Response Analysis      ✅ Transformer-Based Classification
-✅ FastAPI Backend Development         ✅ React Dashboard Development
-✅ API Integration                     ✅ Model Inference Workflow
-✅ Team Collaboration & Git Workflow   ✅ Docker & Deployment Basics
-✅ End-to-End AI Product Development   ✅ Technical Documentation
+```bash
+docker compose up --build
 ```
 
-***
+Frontend: `http://localhost:5173`
 
-## 🔀 Git Workflow
+Backend: `http://localhost:8000`
 
-To ensure transparent contribution tracking, each team member should work on a dedicated branch and raise pull requests for review.
+## Dataset Setup
 
-**Recommended branches:**
-- `main` → stable branch
-- `dev` → integration branch
-- `feature/audio-pipeline`
-- `feature/model-training`
-- `feature/api-inference`
-- `feature/frontend-dashboard`
+The ASVspoof dataset is large, so the repository includes a download helper instead of committing dataset files.
 
-***
+```bash
+cd backend
+python scripts/download_dataset.py
+```
 
-## 🎯 Expected Outcome
+The script uses:
 
-AcousticSpace aims to deliver a robust and research-oriented audio deepfake detection platform that identifies synthetic speech by analyzing **physical acoustic mismatch**, not just vocal artifacts.
+```python
+import kagglehub
+path = kagglehub.dataset_download("awsaf49/asvpoof-2019-dataset")
+```
 
-The final product includes a trained detection model, backend inference service, and an interactive dashboard for practical forensic analysis.
+Store local data outside git under `data/raw/`.
 
-***
+## Project Structure
 
-## 👤 Author & Team
+```text
+backend/                 FastAPI, audio processing, baseline model
+frontend/                React analyst dashboard
+docs/                    Architecture, dataset, review, API, team workflow
+deployment/              Deployment notes and production checklist
+.github/workflows/       CI checks
+```
 
-**Megh Patel**  
-Team Lead — AcousticSpace Internship Project
+## Review Demo Flow
 
-**Team Members:**  
-- Megh Patel  
-- Dimple  
-- Shubhangi  
-- Fathima
-
-***
-
-<p align="center">
-  <i>⭐ If you found this project interesting, consider starring the repository.</i>
-</p>
+1. Start backend and frontend.
+2. Upload a WAV/MP3/FLAC audio clip in the dashboard.
+3. Show waveform rendering.
+4. Submit for analysis.
+5. Explain the acoustic feature cards: reverb tail, RIR decay proxy, background consistency, breathing cadence proxy.
+6. Show confidence output and suspicious segment table.
+7. Open `docs/MID_PROJECT_REVIEW.md` to explain Week 1-2 completion and Week 3-4 plan.
