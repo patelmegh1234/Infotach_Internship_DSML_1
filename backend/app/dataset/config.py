@@ -24,3 +24,6 @@ SPLIT_PATH.mkdir(parents=True, exist_ok=True)
 PROCESSED_DATA_PATH = PROJECT_ROOT / "backend" / "data" / "processed"
 
 PROCESSED_DATA_PATH.mkdir(parents=True, exist_ok=True)
+FEATURE_PATH = PROJECT_ROOT / "backend" / "data" / "features"
+
+FEATURE_PATH.mkdir(parents=True, exist_ok=True)
