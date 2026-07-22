@@ -2,6 +2,24 @@ import librosa
 import numpy as np
 
 
+def compute_silence_ratio(y, frame_length=2048, hop_length=512):
+    """
+    Calculate the proportion of silent frames in an audio signal.
+    """
+
+    rms = librosa.feature.rms(
+        y=y,
+        frame_length=frame_length,
+        hop_length=hop_length
+    )[0]
+
+    threshold = 0.02
+
+    silent_frames = np.sum(rms < threshold)
+
+    return silent_frames / len(rms)
+
+
 def extract_features(audio_path):
     """
     Extract Librosa features from a single audio file.
@@ -77,5 +95,12 @@ def extract_features(audio_path):
 
     for i in range(13):
         features[f"mfcc_{i+1}"] = np.mean(mfcc[i])
+
+    
+    # -----------------------------
+    # Acoustic Space Feature
+    # -----------------------------
+
+    features["silence_ratio"] = compute_silence_ratio(y)
 
     return features
