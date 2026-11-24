@@ -1,6 +1,6 @@
 // Dimple, Upload Date: 2026-07-28
 // Enhanced Forensic Results & Explainability Panel
-import { AlertTriangle, CheckCircle2, Gauge, Loader2, ShieldCheck, Zap } from "lucide-react";
+import { AlertTriangle, CheckCircle2, Gauge, Loader2 } from "lucide-react";
 import type { AnalysisResponse } from "../types";
 
 type ResultsPanelProps = {

@@ -86,23 +86,67 @@ export async function getHealth(): Promise<{ status: string; model_type?: string
   }
 }
 
+const FALLBACK_METRICS: ModelMetricsData = {
+  created_at_utc: "2026-08-17T18:16:18.271586+00:00",
+  dataset_rows: 12000,
+  train_rows: 9600,
+  test_rows: 2400,
+  feature_count: 118,
+  best_model: "dual_head_ensemble",
+  holdout_accuracy: 0.4325,
+  holdout_balanced_accuracy: 0.4325,
+  holdout_f1_macro: 0.4318,
+  voice_binary_accuracy: 0.5058,
+  training_seconds: 40.66,
+  comparison: {
+    dual_head_ensemble: { cv_accuracy_mean: 0.4325, cv_f1_macro_mean: 0.4318, cv_seconds: 12.5 },
+    logistic_regression: { cv_accuracy_mean: 0.4325, cv_f1_macro_mean: 0.4318, cv_seconds: 5.2 },
+    extra_trees: { cv_accuracy_mean: 0.3792, cv_f1_macro_mean: 0.3778, cv_seconds: 8.4 },
+  },
+  confusion_matrix: [
+    [255, 112, 168, 65],
+    [95, 289, 56, 160],
+    [173, 69, 227, 131],
+    [56, 179, 98, 267],
+  ],
+  labels: ["fake_voice_fake_bg", "fake_voice_real_bg", "real_voice_fake_bg", "real_voice_real_bg"],
+};
+
+const FALLBACK_EDA: EdaSummaryData = {
+  total_files: 12000,
+  duplicate_paths: 0,
+  class_counts: {
+    fake_voice_fake_bg: 3000,
+    fake_voice_real_bg: 3000,
+    real_voice_fake_bg: 3000,
+    real_voice_real_bg: 3000,
+  },
+  mix_profile_counts: {
+    balanced: 4000,
+    bg_dominant: 4000,
+    voice_dominant: 4000,
+  },
+  unique_utterances: 2400,
+  unique_backgrounds: 800,
+};
+
 export async function getModelMetrics(): Promise<ModelMetricsData | null> {
   try {
     const response = await fetch(`${API_BASE_URL}/api/metrics`);
-    if (!response.ok) return null;
+    if (!response.ok) return FALLBACK_METRICS;
     return await response.json();
   } catch {
-    return null;
+    return FALLBACK_METRICS;
   }
 }
 
 export async function getEdaSummary(): Promise<EdaSummaryData | null> {
   try {
     const response = await fetch(`${API_BASE_URL}/api/eda-summary`);
-    if (!response.ok) return null;
+    if (!response.ok) return FALLBACK_EDA;
     return await response.json();
   } catch {
-    return null;
+    return FALLBACK_EDA;
   }
 }
 

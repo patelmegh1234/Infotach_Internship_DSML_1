@@ -1,7 +1,7 @@
 // Fathima, Upload Date: 2026-07-28
 // Interactive Model Performance & Evaluation Analytics Panel
 import { useEffect, useState } from "react";
-import { BarChart2, Cpu, CheckCircle2, Award, Zap } from "lucide-react";
+import { BarChart2, Cpu, Award, Zap } from "lucide-react";
 import { getModelMetrics, type ModelMetricsData } from "../api/client";
 
 export function AnalyticsPanel() {

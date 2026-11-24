@@ -1,7 +1,7 @@
 // Fathima, Upload Date: 2026-07-28
 // Dataset Exploratory Data Analysis & Acoustic Insights Panel
 import { useEffect, useState } from "react";
-import { Database, PieChart, Layers, ShieldAlert } from "lucide-react";
+import { Database, PieChart, Layers } from "lucide-react";
 import { getEdaSummary, type EdaSummaryData } from "../api/client";
 
 export function EdaPanel() {
